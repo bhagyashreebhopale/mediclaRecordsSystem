@@ -5,8 +5,12 @@ module.exports = {
       "./node_modules/@shadcn/ui/**/*.{js,jsx,ts,tsx}",
     ],
     theme: {
-      extend: {},
-    },
+      extend: {
+        fontFamily: {
+          inter: ['Inter', 'sans-serif'],
+        },
+      },
+    },    
     plugins: [],
   };
 
