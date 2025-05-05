@@ -1,7 +1,7 @@
 // src/pages/Login.jsx
 import React, { useState } from "react";
 import Input from "../components/Input";
-import { Button } from "@/components/ui/button"; // This comes from shadcn
+import { Button } from "@/components/ui/button";
 
 const Login = () => {
   const [form, setForm] = useState({ email: "", password: "" });
@@ -12,22 +12,27 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Login submitted", form);
-    // TODO: Call backend API
+    console.log("Logging in with", form);
+    // TODO: API call
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center font-inter">
-      <div className="w-full max-w-md bg-white rounded-xl shadow-lg p-8">
-        <h2 className="text-2xl font-bold text-center mb-6">Login to Health Record System</h2>
+    <div className="min-h-screen bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 flex items-center justify-center">
+      <div className="bg-white rounded-2xl shadow-lg p-10 max-w-md w-full">
+        <h1 className="text-3xl font-bold text-center text-gray-800 mb-4">
+          Welcome to Health Record System
+        </h1>
+        <p className="text-center text-sm text-gray-500 mb-6">
+          Securely manage your medical records online
+        </p>
         <form onSubmit={handleSubmit}>
           <Input
-            label="Email"
+            label="Email Address"
             name="email"
             type="email"
             value={form.email}
             onChange={handleChange}
-            placeholder="Enter your email"
+            placeholder="you@example.com"
           />
           <Input
             label="Password"
@@ -35,17 +40,15 @@ const Login = () => {
             type="password"
             value={form.password}
             onChange={handleChange}
-            placeholder="Enter your password"
+            placeholder="••••••••"
           />
-          <Button type="submit" className="w-full mt-4">Login</Button>
+          <Button type="submit" className="w-full mt-4 bg-indigo-600 hover:bg-indigo-700 text-white">
+            Login
+          </Button>
         </form>
-        <p className="text-sm text-center mt-4 text-gray-600">
-          Don’t have an account? <a href="/register" className="text-blue-500 hover:underline">Register</a>
-        </p>
       </div>
     </div>
   );
 };
 
 export default Login;
-// This code defines a Login component in React that allows users to log into a health record management system. It uses the useState hook to manage form state and includes an Input component for email and password fields. The form submission is handled by the handleSubmit function, which currently logs the form data to the console. The component is styled using Tailwind CSS for a clean and modern look. A link to the registration page is also provided for users who don't have an account yet.

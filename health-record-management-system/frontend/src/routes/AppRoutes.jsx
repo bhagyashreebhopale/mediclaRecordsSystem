@@ -7,20 +7,20 @@ import Dashboard from '../pages/Dashboard';
 import ViewPatient from '../pages/ViewPatient';
 import PatientForm from '../components/PatientForm';
 import Navbar from '../components/Navbar';
+import Welcome from "../pages/Welcome";
 
 const AppRoutes = () => {
   return (
-    <BrowserRouter>
-      <Navbar />
+
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Welcome />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/view-patient" element={<ViewPatient />} />
         <Route path="/add-patient" element={<PatientForm />} />
       </Routes>
-    </BrowserRouter>
+   
   );
 };
 
