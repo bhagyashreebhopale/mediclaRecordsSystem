@@ -1,47 +1,47 @@
 import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 
 export default function Welcome() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-green-300 via-blue-500 to-purple-600 font-poppins text-center px-4">
-      <div className="space-y-8">
-        <motion.h1
-          className="text-4xl md:text-5xl font-bold text-white"
-          initial={{ y: -20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.5 }}
-        >
-          Welcome to Health Record System
-        </motion.h1>
+    <div className="min-h-screen bg-blue-500 flex items-center justify-center px-6">  <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="bg-white/90 backdrop-blur-lg p-10 rounded-3xl shadow-2xl max-w-3xl w-full text-center"
+      >
+        {/* Illustration */}
+        <img
+          src="/health.png"
+          alt="Health Illustration"
+          className="mx-auto w-32 h-32 mb-6 max-w-none"
+        />
 
-        <motion.p
-          className="text-lg md:text-xl text-white/90"
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.2, duration: 0.5 }}
-        >
+        {/* Title */}
+        <h1 className="text-4xl font-extrabold text-gray-800 mb-4">
+          Welcome to <span className="text-indigo-700">Health Record System</span>
+        </h1>
+
+        {/* Subtitle */}
+        <p className="text-gray-700 text-lg mb-8">
           A secure and modern way to manage your medical data. Get started below.
-        </motion.p>
+        </p>
 
-        <motion.div
-          className="flex flex-col md:flex-row justify-center gap-4"
-          initial={{ scale: 0.9, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ delay: 0.4, duration: 0.5 }}
-        >
-          <Link to="/register">
-            <Button className="rounded-full px-6 py-3 text-lg font-semibold shadow-lg bg-white text-black hover:bg-gray-100 transition duration-300">
-              I'm New – Register
-            </Button>
+        {/* Buttons */}
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <Link
+            to="/register"
+            className="px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl shadow-lg transition duration-200"
+          >
+            I'm New – Register
           </Link>
-          <Link to="/login">
-            <Button className="rounded-full px-6 py-3 text-lg font-semibold shadow-lg bg-black text-white hover:bg-gray-900 transition duration-300">
-              Already a User? Login
-            </Button>
+          <Link
+            to="/login"
+            className="px-6 py-3 bg-white border border-indigo-300 hover:border-indigo-500 hover:text-indigo-700 text-gray-800 font-semibold rounded-xl shadow-md transition duration-200"
+          >
+            Already a User? Login
           </Link>
-        </motion.div>
-      </div>
+        </div>
+      </motion.div>
     </div>
   );
 }
